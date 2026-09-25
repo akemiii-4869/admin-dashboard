@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IFC Crafts — Dashboard</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=The+Seasons:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<header class="topbar">
+
+    <a href="dashboard.html" class="brand">
+        <span class="brand-mark">
+            <img
+                src="images/ifc_crafts.jpg"
+                alt="IFC Crafts Logo"
+                class="nav-logo"
+            >
+        </span>
+
+        <span class="brand-name">IFC Crafts</span>
+    </a>
+
+    <div class="topbar-actions">
+
+        <a
+            href="notifications.html"
+            class="icon-btn"
+            aria-label="Notifications"
+        >
+            <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+
+            <span class="icon-dot" id="notificationDot"></span>
+        </a>
+
+        <a href="settings.html" class="profile-chip">
+            <span class="avatar">A</span>
+            <span class="profile-name" id="adminName">Admin</span>
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN SHELL
+===================================================== -->
+
+<div class="shell">
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+        <nav class="sidenav" aria-label="Sidebar navigation">
+
+            <a href="dashboard.html" class="sidenav-link active">
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                </svg>
+
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="orders.html" class="sidenav-link">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M6 2h12v20H6z"></path>
+                    <path d="M9 6h6"></path>
+                    <path d="M9 10h6"></path>
+                    <path d="M9 14h4"></path>
+                </svg>
+
+                <span>Orders</span>
+            </a>
+
+
+            <a href="products_services.html" class="sidenav-link">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                    <path d="M3 10h18"></path>
+                </svg>
+
+                
+
+                <span>Products & Services</span>
+            </a>
+
+
+            <a href="products_services.html" class="sidenav-link">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+
+                <span>Users</span>
+            </a>
+
+
+            <a href="messages.html" class="sidenav-link">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 9.5 9.5 0 0 1-4-.9L3 21l1.9-4.1A8.5 8.5 0 1 1 21 11.5z"></path>
+                </svg>
+
+                <span>Messages</span>
+            </a>
+
+
+            <a href="notifications.html" class="sidenav-link">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+
+                <span>Notifications</span>
+            </a>
+
+
+            <a href="reviews.html" class="sidenav-link">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3z"></path>
+                </svg>
+
+                <span>Reviews</span>
+            </a>
+
+
+            <a href="reports.html" class="sidenav-link">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M4 19V5"></path>
+                    <path d="M4 19h16"></path>
+                    <path d="M8 16v-5"></path>
+                    <path d="M12 16V8"></path>
+                    <path d="M16 16v-3"></path>
+                </svg>
+
+                <span>Reports</span>
+            </a>
+
+
+            <a href="audit_logs.html" class="sidenav-link">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v5l3 2"></path>
+                </svg>
+
+                <span>Audit Logs</span>
+            </a>
+
+        <!-- Settings -->
+        <a href="settings.html" class="sidenav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.37-.31-.6-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98L14.5 2.42C14.47 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.5.42L9.12 5.07c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.08-.48 0-.6.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.08.65-.08.98s.03.66.08.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.37.31.6.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.58 1.69-.98l2.49 1c.23.08.48 0 .6-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"/>
+          </svg>
+          <span>Settings</span>
+        </a>
+       </nav>
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main">
+
+        <!-- Greeting -->
+
+        <section class="greeting-card">
+
+            <h1>
+                Welcome back, <span id="greetingName">Admin</span>!
+            </h1>
+
+            <p>
+                Here's what's happening with your store today.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stat-grid">
+
+            <a href="orders.html?filter=all" class="stat-card">
+
+                <span class="stat-icon">
+                    <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M6 2h12v20H6z"></path>
+                        <path d="M9 6h6"></path>
+                        <path d="M9 10h6"></path>
+                        <path d="M9 14h4"></path>
+                    </svg>
+                </span>
+
+                <span class="stat-label">Total Orders</span>
+
+                <strong
+                    class="stat-value"
+                    id="totalOrders"
+                >—</strong>
+
+            </a>
+
+
+            <a href="orders.html?filter=pending" class="stat-card">
+
+                <span class="stat-icon">
+                    <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M12 7v5l3 2"></path>
+                    </svg>
+                </span>
+
+                <span class="stat-label">Pending Orders</span>
+
+                <strong
+                    class="stat-value"
+                    id="pendingOrders"
+                >—</strong>
+
+            </a>
+
+
+            <a href="orders.html?filter=completed" class="stat-card">
+
+                <span class="stat-icon">
+                    <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M20 6L9 17l-5-5"></path>
+                    </svg>
+                </span>
+
+                <span class="stat-label">Completed Orders</span>
+
+                <strong
+                    class="stat-value"
+                    id="completedOrders"
+                >—</strong>
+
+            </a>
+
+
+            <a href="users.html" class="stat-card">
+
+                <span class="stat-icon">
+                    <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                    </svg>
+                </span>
+
+                <span class="stat-label">Registered Users</span>
+
+                <strong
+                    class="stat-value"
+                    id="registeredUsers"
+                >—</strong>
+
+            </a>
+
+
+            <a href="transactions.html?filter=pending" class="stat-card">
+
+                <span class="stat-icon">
+                    <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                        <path d="M3 10h18"></path>
+                    </svg>
+                </span>
+
+                <span class="stat-label">Pending Payments</span>
+
+                <strong
+                    class="stat-value"
+                    id="pendingPayments"
+                >—</strong>
+
+            </a>
+
+        </section>
+
+
+        <!-- =================================================
+             CONTENT GRID
+        ================================================== -->
+
+        <section class="content-grid">
+
+
+            <!-- =================================================
+                 ORDERS OVERVIEW
+            ================================================== -->
+
+            <section class="panel chart-panel">
+
+                <div class="panel-head">
+
+                    <h2>Orders Overview</h2>
+
+                    <a
+                        href="orders.html"
+                        class="view-all"
+                    >
+                        View All
+                    </a>
+
+                </div>
+
+
+                <ul class="legend">
+
+                    <li>
+                        <i style="--dot: #6f3c52;"></i>
+                        <span>Necklace</span>
+                    </li>
+
+                    <li>
+                        <i style="--dot: #a6a6a6;"></i>
+                        <span>Henna</span>
+                    </li>
+
+                    <li>
+                        <i style="--dot: #1c1c1c;"></i>
+                        <span>Keychain</span>
+                    </li>
+
+                </ul>
+
+
+                <div
+                    class="chart-box"
+                    id="ordersChartContainer"
+                >
+
+                    <svg
+                        class="orders-svg"
+                        id="ordersChart"
+                        viewBox="0 0 800 330"
+                        preserveAspectRatio="none"
+                        role="img"
+                        aria-label="Orders overview chart"
+                    >
+
+                        <!-- Grid -->
+                        <g id="ordersChartGrid"></g>
+
+                        <!-- Labels -->
+                        <g id="ordersChartLabels"></g>
+
+                        <!-- Areas -->
+                        <path
+                            id="necklaceArea"
+                            class="area-necklace"
+                            d=""
+                        ></path>
+
+                        <path
+                            id="hennaArea"
+                            class="area-henna"
+                            d=""
+                        ></path>
+
+                        <path
+                            id="keychainArea"
+                            class="area-keychain"
+                            d=""
+                        ></path>
+
+                        <!-- Lines -->
+                        <path
+                            id="necklaceLine"
+                            class="line-necklace"
+                            d=""
+                        ></path>
+
+                        <path
+                            id="hennaLine"
+                            class="line-henna"
+                            d=""
+                        ></path>
+
+                        <path
+                            id="keychainLine"
+                            class="line-keychain"
+                            d=""
+                        ></path>
+
+                        <!-- Points -->
+                        <g id="necklacePoints"></g>
+                        <g id="hennaPoints"></g>
+                        <g id="keychainPoints"></g>
+
+                    </svg>
+
+                    <div
+                        class="chart-empty"
+                        id="ordersChartEmpty"
+                        hidden
+                    >
+                        No order data available.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ORDER STATUS
+            ================================================== -->
+
+            <section class="panel status-panel">
+
+                <div class="panel-head">
+
+                    <h2>Order Status</h2>
+
+                </div>
+
+
+                <div class="status-chart-layout">
+
+
+                    <!-- Donut -->
+
+                    <div class="donut-box">
+
+                        <svg
+                            class="status-svg"
+                            viewBox="0 0 220 220"
+                            role="img"
+                            aria-label="Order status chart"
+                        >
+
+                            <circle
+                                class="donut-background"
+                                cx="110"
+                                cy="110"
+                                r="72"
+                            ></circle>
+
+
+                            <circle
+                                id="donutCompleted"
+                                class="donut-completed"
+                                cx="110"
+                                cy="110"
+                                r="72"
+                            ></circle>
+
+
+                            <circle
+                                id="donutPending"
+                                class="donut-pending"
+                                cx="110"
+                                cy="110"
+                                r="72"
+                            ></circle>
+
+
+                            <circle
+                                id="donutCancelled"
+                                class="donut-cancelled"
+                                cx="110"
+                                cy="110"
+                                r="72"
+                            ></circle>
+
+
+                            <circle
+                                id="donutProcessing"
+                                class="donut-processing"
+                                cx="110"
+                                cy="110"
+                                r="72"
+                            ></circle>
+
+
+                            <text
+                                id="statusTotal"
+                                class="donut-number"
+                                x="110"
+                                y="106"
+                                text-anchor="middle"
+                            >—</text>
+
+                            <text
+                                class="donut-text"
+                                x="110"
+                                y="126"
+                                text-anchor="middle"
+                            >
+                                Orders
+                            </text>
+
+                        </svg>
+
+                    </div>
+
+
+                    <!-- Status Legend -->
+
+                    <ul class="status-legend">
+
+                        <li>
+
+                            <span class="legend-left">
+
+                                <i style="--dot: #6f3c52;"></i>
+
+                                <span>Completed</span>
+
+                            </span>
+
+                            <b id="completedPercentage">—</b>
+
+                        </li>
+
+
+                        <li>
+
+                            <span class="legend-left">
+
+                                <i style="--dot: #a6a6a6;"></i>
+
+                                <span>Pending</span>
+
+                            </span>
+
+                            <b id="pendingPercentage">—</b>
+
+                        </li>
+
+
+                        <li>
+
+                            <span class="legend-left">
+
+                                <i style="--dot: #595959;"></i>
+
+                                <span>Cancelled</span>
+
+                            </span>
+
+                            <b id="cancelledPercentage">—</b>
+
+                        </li>
+
+
+                        <li>
+
+                            <span class="legend-left">
+
+                                <i style="--dot: #e9e9e9;"></i>
+
+                                <span>Processing</span>
+
+                            </span>
+
+                            <b id="processingPercentage">—</b>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RECENT ORDERS
+            ================================================== -->
+
+            <section class="panel orders-panel">
+
+                <div class="panel-head">
+
+                    <h2>Recent Orders</h2>
+
+                    <a
+                        href="orders.html"
+                        class="view-all"
+                    >
+                        View All
+                    </a>
+
+                </div>
+
+
+                <ul
+                    class="order-list"
+                    id="recentOrdersList"
+                >
+                    <!-- Backend-generated orders will appear here -->
+                </ul>
+
+
+                <div
+                    class="orders-empty"
+                    id="recentOrdersEmpty"
+                    hidden
+                >
+                    No recent orders available.
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================== -->
+
+            <section class="panel actions-panel">
+
+                <div class="panel-head">
+
+                    <h2>Quick Actions</h2>
+
+                </div>
+
+
+                <div class="actions-list">
+
+                    <button
+                        type="button"
+                        class="action-btn"
+                        id="openAddProductModalBtn"
+                    >
+                        Add Product / Service
+                    </button>
+
+                    <a
+                        href="orders.html"
+                        class="action-btn"
+                    >
+                        Manage Orders
+                    </a>
+
+
+                    <a
+                        href="users.html"
+                        class="action-btn"
+                    >
+                        Manage Users
+                    </a>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     ADD PRODUCT MODAL
+===================================================== -->
+
+<div
+    class="modal-overlay"
+    id="addProductModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="addProductTitle"
+    >
+
+        <div class="modal-head">
+
+            <h2 id="addProductTitle">
+                Add Product / Service
+            </h2>
+
+            <button
+                type="button"
+                class="modal-close"
+                id="closeAddProduct"
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form
+            class="product-form"
+            id="addProductForm"
+        >
+
+            <!-- Product Image -->
+
+            <label class="form-label">
+                Product Image
+            </label>
+
+            <label
+                class="upload-drop"
+                for="productImage"
+            >
+
+                <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M12 3v12"></path>
+                    <path d="M7 8l5-5 5 5"></path>
+                    <path d="M5 21h14"></path>
+                </svg>
+
+                <span>Click to upload image</span>
+
+                <small>
+                    JPG, PNG or WEBP
+                </small>
+
+                <input
+                    type="file"
+                    id="productImage"
+                    name="image"
+                    accept="image/png,image/jpeg,image/webp"
+                    hidden
+                >
+
+            </label>
+
+
+            <!-- Product Name -->
+
+            <label
+                class="form-label"
+                for="productName"
+            >
+                Product Name <span class="req">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="productName"
+                name="name"
+                class="form-input"
+                placeholder="Enter product name"
+                required
+            >
+
+
+            <!-- Category -->
+
+            <label
+                class="form-label"
+                for="productCategory"
+            >
+                Category <span class="req">*</span>
+            </label>
+
+            <select
+                id="productCategory"
+                name="category"
+                class="form-input"
+                required
+            >
+
+                <option value="" selected disabled>
+                    Select category
+                </option>
+
+                <option value="necklace">
+                    Necklace
+                </option>
+
+                <option value="bracelet">
+                    Bracelet
+                </option>
+
+                <option value="henna">
+                    Henna Art
+                </option>
+
+                <option value="keychain">
+                    Keychain
+                </option>
+
+                <option value="other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <!-- Description -->
+
+            <label
+                class="form-label"
+                for="productDescription"
+            >
+                Description
+            </label>
+
+            <textarea
+                id="productDescription"
+                name="description"
+                class="form-input form-textarea"
+                placeholder="Enter product description"
+            ></textarea>
+
+
+            <!-- Price + Stock -->
+
+            <div class="form-row">
+
+                <div class="form-col">
+
+                    <label
+                        class="form-label"
+                        for="productPrice"
+                    >
+                        Price <span class="req">*</span>
+                    </label>
+
+                    <div class="price-input">
+
+                        <span class="peso-sign">₱</span>
+
+                        <input
+                            type="number"
+                            id="productPrice"
+                            name="price"
+                            class="price-field"
+                            placeholder="0.00"
+                            min="0"
+                            step="0.01"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-col">
+
+                    <label
+                        class="form-label"
+                        for="productStock"
+                    >
+                        Stock
+                    </label>
+
+                    <input
+                        type="number"
+                        id="productStock"
+                        name="stock"
+                        class="form-input"
+                        placeholder="0"
+                        min="0"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Status -->
+
+            <label
+                class="form-label"
+                for="productStatus"
+            >
+                Status <span class="req">*</span>
+            </label>
+
+            <select
+                id="productStatus"
+                name="status"
+                class="form-input"
+                required
+            >
+
+                <option value="active">
+                    Active
+                </option>
+
+                <option value="out_of_stock">
+                    Out of Stock
+                </option>
+
+            </select>
+
+
+            <!-- Actions -->
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="form-btn cancel"
+                    id="cancelAddProduct"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="form-btn save"
+                >
+                    Save Product
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD SCRIPT
+===================================================== -->
+
+<script>
+
+const API_BASE_URL = "/api";
+
+
+// =====================================================
+// HELPERS
+// =====================================================
+
+function formatNumber(value) {
+
+    const number = Number(value);
+
+    if (!Number.isFinite(number)) {
+        return "0";
+    }
+
+    return number.toLocaleString();
+
+}
+
+
+function escapeHtml(value) {
+
+    const div = document.createElement("div");
+
+    div.textContent = value ?? "";
+
+    return div.innerHTML;
+
+}
+
+
+// =====================================================
+// DASHBOARD DATA
+// =====================================================
+
+async function loadDashboard() {
+
+    try {
+
+        const response = await fetch(
+            `${API_BASE_URL}/dashboard`,
+            {
+                method: "GET",
+                credentials: "include",
+                headers: {
+                    "Accept": "application/json"
+                }
+            }
+        );
+
+
+        if (!response.ok) {
+            throw new Error("Failed to load dashboard data.");
+        }
+
+
+        const data = await response.json();
+
+        renderDashboard(data);
+
+    } catch (error) {
+
+        console.error("Dashboard error:", error);
+
+        renderDashboard({
+            totalOrders: 0,
+            pendingOrders: 0,
+            completedOrders: 0,
+            registeredUsers: 0,
+            pendingPayments: 0,
+
+            orderStatus: {
+                completed: 0,
+                pending: 0,
+                cancelled: 0,
+                processing: 0
+            },
+
+            ordersOverview: {
+                labels: [],
+                necklace: [],
+                henna: [],
+                keychain: []
+            },
+
+            recentOrders: []
+        });
+
+    }
+
+}
+
+
+// =====================================================
+// RENDER DASHBOARD
+// =====================================================
+
+function renderDashboard(data) {
+
+    document.getElementById("totalOrders").textContent =
+        formatNumber(data.totalOrders);
+
+    document.getElementById("pendingOrders").textContent =
+        formatNumber(data.pendingOrders);
+
+    document.getElementById("completedOrders").textContent =
+        formatNumber(data.completedOrders);
+
+    document.getElementById("registeredUsers").textContent =
+        formatNumber(data.registeredUsers);
+
+    document.getElementById("pendingPayments").textContent =
+        formatNumber(data.pendingPayments);
+
+
+    renderStatusChart(
+        data.orderStatus || {}
+    );
+
+
+    renderOrdersChart(
+        data.ordersOverview || {}
+    );
+
+
+    renderRecentOrders(
+        data.recentOrders || []
+    );
+
+}
+
+
+// =====================================================
+// ORDERS OVERVIEW SVG CHART
+// =====================================================
+
+function renderOrdersChart(chartData) {
+
+    const labels = Array.isArray(chartData.labels)
+        ? chartData.labels
+        : [];
+
+    const necklace = Array.isArray(chartData.necklace)
+        ? chartData.necklace
+        : [];
+
+    const henna = Array.isArray(chartData.henna)
+        ? chartData.henna
+        : [];
+
+    const keychain = Array.isArray(chartData.keychain)
+        ? chartData.keychain
+        : [];
+
+
+    const emptyState =
+        document.getElementById("ordersChartEmpty");
+
+    if (!labels.length) {
+
+        emptyState.hidden = false;
+
+        document.getElementById("ordersChartGrid").innerHTML = "";
+        document.getElementById("ordersChartLabels").innerHTML = "";
+
+        document.getElementById("necklaceArea").setAttribute("d", "");
+        document.getElementById("hennaArea").setAttribute("d", "");
+        document.getElementById("keychainArea").setAttribute("d", "");
+
+        document.getElementById("necklaceLine").setAttribute("d", "");
+        document.getElementById("hennaLine").setAttribute("d", "");
+        document.getElementById("keychainLine").setAttribute("d", "");
+
+        document.getElementById("necklacePoints").innerHTML = "";
+        document.getElementById("hennaPoints").innerHTML = "";
+        document.getElementById("keychainPoints").innerHTML = "";
+
+        return;
+    }
+
+
+    emptyState.hidden = true;
+
+
+    const width = 800;
+    const height = 330;
+
+    const padding = {
+        top: 20,
+        right: 20,
+        bottom: 40,
+        left: 45
+    };
+
+
+    const chartWidth =
+        width - padding.left - padding.right;
+
+    const chartHeight =
+        height - padding.top - padding.bottom;
+
+
+    const allValues = [
+        ...necklace,
+        ...henna,
+        ...keychain
+    ]
+        .map(Number)
+        .filter(Number.isFinite);
+
+
+    const maxValue =
+        Math.max(...allValues, 1);
+
+
+    const yMax =
+        Math.ceil(maxValue / 10) * 10 || 10;
+
+
+    const xStep =
+        labels.length > 1
+            ? chartWidth / (labels.length - 1)
+            : chartWidth;
+
+
+    function getX(index) {
+
+        if (labels.length === 1) {
+            return padding.left + chartWidth / 2;
+        }
+
+        return padding.left + index * xStep;
+
+    }
+
+
+    function getY(value) {
+
+        const numericValue =
+            Number(value) || 0;
+
+        return (
+            padding.top +
+            chartHeight -
+            (numericValue / yMax) * chartHeight
+        );
+
+    }
+
+
+    function createPoints(values) {
+
+        return values.map((value, index) => {
+
+            return {
+                x: getX(index),
+                y: getY(value)
+            };
+
+        });
+
+    }
+
+
+    function createLinePath(points) {
+
+        if (!points.length) {
+            return "";
+        }
+
+        return points
+            .map((point, index) => {
+
+                return `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`;
+
+            })
+            .join(" ");
+
+    }
+
+
+    function createAreaPath(points) {
+
+        if (!points.length) {
+            return "";
+        }
+
+
+        const linePath =
+            createLinePath(points);
+
+
+        const firstX =
+            points[0].x;
+
+        const lastX =
+            points[points.length - 1].x;
+
+
+        const bottomY =
+            padding.top + chartHeight;
+
+
+        return `
+            ${linePath}
+            L ${lastX} ${bottomY}
+            L ${firstX} ${bottomY}
+            Z
+        `;
+
+    }
+
+
+    const necklacePoints =
+        createPoints(necklace);
+
+    const hennaPoints =
+        createPoints(henna);
+
+    const keychainPoints =
+        createPoints(keychain);
+
+
+    // -----------------------------------------------
+    // GRID
+    // -----------------------------------------------
+
+    const gridContainer =
+        document.getElementById("ordersChartGrid");
+
+    gridContainer.innerHTML = "";
+
+
+    const gridCount = 5;
+
+
+    for (let i = 0; i <= gridCount; i++) {
+
+        const y =
+            padding.top +
+            (chartHeight / gridCount) * i;
+
+
+        const value =
+            Math.round(
+                yMax -
+                (yMax / gridCount) * i
+            );
+
+
+        gridContainer.insertAdjacentHTML(
+            "beforeend",
+            `
+                <line
+                    class="chart-grid"
+                    x1="${padding.left}"
+                    y1="${y}"
+                    x2="${width - padding.right}"
+                    y2="${y}"
+                ></line>
+
+                <text
+                    class="chart-label"
+                    x="${padding.left - 10}"
+                    y="${y + 4}"
+                    text-anchor="end"
+                >
+                    ${value}
+                </text>
+            `
+        );
+
+    }
+
+
+    // -----------------------------------------------
+    // X AXIS LABELS
+    // -----------------------------------------------
+
+    const labelsContainer =
+        document.getElementById("ordersChartLabels");
+
+    labelsContainer.innerHTML = "";
+
+
+    labels.forEach((label, index) => {
+
+        labelsContainer.insertAdjacentHTML(
+            "beforeend",
+            `
+                <text
+                    class="chart-label"
+                    x="${getX(index)}"
+                    y="${height - 10}"
+                    text-anchor="middle"
+                >
+                    ${escapeHtml(label)}
+                </text>
+            `
+        );
+
+    });
+
+
+    // -----------------------------------------------
+    // AREAS
+    // -----------------------------------------------
+
+    document
+        .getElementById("necklaceArea")
+        .setAttribute(
+            "d",
+            createAreaPath(necklacePoints)
+        );
+
+
+    document
+        .getElementById("hennaArea")
+        .setAttribute(
+            "d",
+            createAreaPath(hennaPoints)
+        );
+
+
+    document
+        .getElementById("keychainArea")
+        .setAttribute(
+            "d",
+            createAreaPath(keychainPoints)
+        );
+
+
+    // -----------------------------------------------
+    // LINES
+    // -----------------------------------------------
+
+    document
+        .getElementById("necklaceLine")
+        .setAttribute(
+            "d",
+            createLinePath(necklacePoints)
+        );
+
+
+    document
+        .getElementById("hennaLine")
+        .setAttribute(
+            "d",
+            createLinePath(hennaPoints)
+        );
+
+
+    document
+        .getElementById("keychainLine")
+        .setAttribute(
+            "d",
+            createLinePath(keychainPoints)
+        );
+
+
+    // -----------------------------------------------
+    // POINTS
+    // -----------------------------------------------
+
+    renderChartPoints(
+        "necklacePoints",
+        necklacePoints,
+        "point-necklace"
+    );
+
+    renderChartPoints(
+        "hennaPoints",
+        hennaPoints,
+        "point-henna"
+    );
+
+    renderChartPoints(
+        "keychainPoints",
+        keychainPoints,
+        "point-keychain"
+    );
+
+}
+
+
+// =====================================================
+// CHART POINTS
+// =====================================================
+
+function renderChartPoints(
+    containerId,
+    points,
+    className
+) {
+
+    const container =
+        document.getElementById(containerId);
+
+
+    container.innerHTML = "";
+
+
+    points.forEach(point => {
+
+        container.insertAdjacentHTML(
+            "beforeend",
+            `
+                <circle
+                    class="${className}"
+                    cx="${point.x}"
+                    cy="${point.y}"
+                    r="3.5"
+                ></circle>
+            `
+        );
+
+    });
+
+}
+
+
+// =====================================================
+// ORDER STATUS DONUT
+// =====================================================
+
+function renderStatusChart(status) {
+
+    const completed =
+        Number(status.completed) || 0;
+
+    const pending =
+        Number(status.pending) || 0;
+
+    const cancelled =
+        Number(status.cancelled) || 0;
+
+    const processing =
+        Number(status.processing) || 0;
+
+
+    const total =
+        completed +
+        pending +
+        cancelled +
+        processing;
+
+
+    document.getElementById("statusTotal").textContent =
+        formatNumber(total);
+
+
+    if (total === 0) {
+
+        document.getElementById("completedPercentage").textContent = "0%";
+        document.getElementById("pendingPercentage").textContent = "0%";
+        document.getElementById("cancelledPercentage").textContent = "0%";
+        document.getElementById("processingPercentage").textContent = "0%";
+
+        resetDonut();
+
+        return;
+    }
+
+
+    const completedPercent =
+        (completed / total) * 100;
+
+    const pendingPercent =
+        (pending / total) * 100;
+
+    const cancelledPercent =
+        (cancelled / total) * 100;
+
+    const processingPercent =
+        (processing / total) * 100;
+
+
+    document.getElementById("completedPercentage").textContent =
+        `${completedPercent.toFixed(0)}%`;
+
+    document.getElementById("pendingPercentage").textContent =
+        `${pendingPercent.toFixed(0)}%`;
+
+    document.getElementById("cancelledPercentage").textContent =
+        `${cancelledPercent.toFixed(0)}%`;
+
+    document.getElementById("processingPercentage").textContent =
+        `${processingPercent.toFixed(0)}%`;
+
+
+    const radius = 72;
+
+    const circumference =
+        2 * Math.PI * radius;
+
+
+    const completedLength =
+        circumference * (completed / total);
+
+    const pendingLength =
+        circumference * (pending / total);
+
+    const cancelledLength =
+        circumference * (cancelled / total);
+
+    const processingLength =
+        circumference * (processing / total);
+
+
+    const completedCircle =
+        document.getElementById("donutCompleted");
+
+    const pendingCircle =
+        document.getElementById("donutPending");
+
+    const cancelledCircle =
+        document.getElementById("donutCancelled");
+
+    const processingCircle =
+        document.getElementById("donutProcessing");
+
+
+    completedCircle.style.strokeDasharray =
+        `${completedLength} ${circumference}`;
+
+    completedCircle.style.strokeDashoffset = "0";
+
+
+    pendingCircle.style.strokeDasharray =
+        `${pendingLength} ${circumference}`;
+
+    pendingCircle.style.strokeDashoffset =
+        `-${completedLength}`;
+
+
+    cancelledCircle.style.strokeDasharray =
+        `${cancelledLength} ${circumference}`;
+
+    cancelledCircle.style.strokeDashoffset =
+        `-${completedLength + pendingLength}`;
+
+
+    processingCircle.style.strokeDasharray =
+        `${processingLength} ${circumference}`;
+
+    processingCircle.style.strokeDashoffset =
+        `-${completedLength + pendingLength + cancelledLength}`;
+
+}
+
+
+// =====================================================
+// RESET DONUT
+// =====================================================
+
+function resetDonut() {
+
+    const circumference =
+        2 * Math.PI * 72;
+
+
+    [
+        "donutCompleted",
+        "donutPending",
+        "donutCancelled",
+        "donutProcessing"
+    ].forEach(id => {
+
+        const element =
+            document.getElementById(id);
+
+        element.style.strokeDasharray =
+            `0 ${circumference}`;
+
+        element.style.strokeDashoffset =
+            "0";
+
+    });
+
+}
+
+
+// =====================================================
+// RECENT ORDERS
+// =====================================================
+
+function renderRecentOrders(orders) {
+
+    const list =
+        document.getElementById("recentOrdersList");
+
+    const empty =
+        document.getElementById("recentOrdersEmpty");
+
+
+    list.innerHTML = "";
+
+
+    if (!Array.isArray(orders) || !orders.length) {
+
+        empty.hidden = false;
+
+        return;
+    }
+
+
+    empty.hidden = true;
+
+
+    orders.forEach(order => {
+
+        const orderId =
+            order.id ?? "";
+
+        const product =
+            order.product ?? "Order";
+
+        const date =
+            order.date ?? "—";
+
+        const status =
+            order.status ?? "Pending";
+
+
+        const statusClass =
+            getStatusClass(status);
+
+
+        const li =
+            document.createElement("li");
+
+        li.className = "order-row";
+
+
+        li.innerHTML = `
+
+            <span class="order-thumb">
+
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                >
+                    <path d="M6 2h12v20H6z"></path>
+                    <path d="M9 6h6"></path>
+                    <path d="M9 10h6"></path>
+                </svg>
+
+            </span>
+
+
+            <span class="order-info">
+
+                <b>
+                    Order #${escapeHtml(orderId)}
+                </b>
+
+                <small>
+                    ${escapeHtml(product)} · ${escapeHtml(date)}
+                </small>
+
+            </span>
+
+
+            <span class="status-pill ${statusClass}">
+                ${escapeHtml(status)}
+            </span>
+
+
+            <a
+                href="orders.html?id=${encodeURIComponent(orderId)}"
+                class="view-link"
+            >
+                View
+            </a>
+
+        `;
+
+
+        list.appendChild(li);
+
+    });
+
+}
+
+
+// =====================================================
+// STATUS CLASS
+// =====================================================
+
+function getStatusClass(status) {
+
+    const normalized =
+        String(status)
+            .toLowerCase()
+            .replace(/[\s_-]+/g, "");
+
+
+    if (normalized === "completed") {
+        return "status-completed";
+    }
+
+
+    if (
+        normalized === "processing" ||
+        normalized === "inprogress"
+    ) {
+        return "status-progress";
+    }
+
+
+    return "status-progress";
+
+}
+
+
+// =====================================================
+// ADD PRODUCT MODAL
+// =====================================================
+
+const addProductModal =
+    document.getElementById("addProductModal");
+
+const closeAddProduct =
+    document.getElementById("closeAddProduct");
+
+const cancelAddProduct =
+    document.getElementById("cancelAddProduct");
+
+const addProductForm =
+    document.getElementById("addProductForm");
+
+const openAddProductModalBtn =
+    document.getElementById("openAddProductModalBtn");
+
+
+function openAddProductModal() {
+
+    addProductModal.classList.add("open");
+
+    addProductModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.classList.add("modal-open");
+
+}
+
+
+function closeAddProductModal() {
+
+    addProductModal.classList.remove("open");
+
+    addProductModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+openAddProductModalBtn?.addEventListener(
+    "click",
+    openAddProductModal
+);
+
+
+closeAddProduct?.addEventListener(
+    "click",
+    closeAddProductModal
+);
+
+
+cancelAddProduct?.addEventListener(
+    "click",
+    closeAddProductModal
+);
+
+
+addProductModal?.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target === addProductModal
+        ) {
+            closeAddProductModal();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key === "Escape" &&
+            addProductModal.classList.contains("open")
+        ) {
+            closeAddProductModal();
+        }
+
+    }
+);
+
+
+addProductForm?.addEventListener(
+    "submit",
+    async event => {
+
+        event.preventDefault();
+
+        /*
+         * Backend integration:
+         *
+         * const formData = new FormData(addProductForm);
+         *
+         * await fetch(
+         *     `${API_BASE_URL}/products`,
+         *     {
+         *         method: "POST",
+         *         body: formData,
+         *         credentials: "include"
+         *     }
+         * );
+         *
+         * Do not add frontend demo data here.
+         */
+
+        console.log(
+            "Product form ready for backend submission."
+        );
+
+    }
+);
+
+
+// =====================================================
+// INITIAL LOAD
+// =====================================================
+
+loadDashboard();
+
+</script>
+
+</body>
+</html>
