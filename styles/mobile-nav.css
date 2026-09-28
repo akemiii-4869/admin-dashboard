@@ -1,0 +1,13 @@
+
+/* Shared phone navigation: desktop sidebar remains unchanged. */
+.mobile-menu-button { display: none; }
+.mobile-nav-backdrop { display: none; }
+@media (max-width: 760px) {
+  .mobile-menu-button { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 42px; width: 42px; height: 42px; margin-right: 8px; border: 1px solid #777; border-radius: 9px; background: transparent; color: #fff; font-size: 23px; }
+  .topbar { padding-inline: 12px; }
+  .brand { min-width: 0; flex: 1; }
+  .brand-name { white-space: nowrap; }
+  .sidebar.mobile-open { display: block !important; position: fixed !important; top: 64px; left: 0; bottom: 0; width: min(280px, 82vw) !important; min-height: 0 !important; overflow-y: auto; z-index: 1001; background: #fff; box-shadow: 8px 0 28px #0003; }
+  .mobile-nav-backdrop.open { display: block; position: fixed; inset: 64px 0 0; background: #0007; z-index: 1000; }
+  body.mobile-nav-open { overflow: hidden; }
+}
