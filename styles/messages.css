@@ -1527,3 +1527,12 @@ a {
 
   background: #e2e2e2;
 }
+
+.chat-empty-state { margin: auto; color: #777; text-align: center; font-size: .85rem; }
+@media (max-width: 760px) {
+  .messages-layout { display: block; }
+  .conversation-panel { min-height: 380px; }
+  .chat-panel { display: none; min-height: 0; height: min(70vh, 680px); }
+  .messages-layout.show-chat .conversation-panel { display: none; }
+  .messages-layout.show-chat .chat-panel { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; width: 100%; }
+}
