@@ -16,6 +16,7 @@
   >
 
   <link rel="stylesheet" href="styles/settings.css">
+  <link rel="stylesheet" href="styles/mobile-nav.css">
 </head>
 
 <body>
@@ -25,6 +26,7 @@
   ========================================================== -->
 
   <header class="topbar">
+    <button type="button" class="mobile-menu-button" aria-label="Open navigation" aria-controls="mobileSidebar" aria-expanded="false">☰</button>
 
     <div class="brand">
 
@@ -110,7 +112,7 @@
          SIDEBAR
     ======================================================== -->
 
-    <aside class="sidebar">
+    <aside class="sidebar" id="mobileSidebar">
 
       <nav class="sidenav">
 
@@ -1343,7 +1345,7 @@
               <button
                 type="button"
                 class="secondary-btn"
-                onclick="window.location.href='audit_logs.html'"
+                onclick="window.location.href='audit-logs.html'"
               >
                 View Audit Logs
               </button>
@@ -3378,5 +3380,7 @@
 
   </script>
 
+  <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <script src="mobile-nav.js"></script>
 </body>
 </html>
