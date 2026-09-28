@@ -1143,6 +1143,42 @@
 
 
     let conversationFilter = "all";
+    let activeConversationId = 1;
+    const conversationMessages = new Map();
+
+    function selectConversation(id) {
+      const conversation = conversations.find(item => item.id === id);
+      if (!conversation) return;
+      if (id !== activeConversationId) {
+        const previous = document.createDocumentFragment();
+        while (chatBody.firstChild) previous.appendChild(chatBody.firstChild);
+        conversationMessages.set(activeConversationId, previous);
+        activeConversationId = id;
+        if (!conversationMessages.has(id)) {
+          const empty = document.createElement('p');
+          empty.className = 'chat-empty-state';
+          empty.textContent = 'No messages in this demo conversation yet.';
+          const view = document.createDocumentFragment();
+          view.appendChild(empty);
+          conversationMessages.set(id, view);
+        }
+        chatBody.appendChild(conversationMessages.get(id));
+      }
+      document.getElementById('chatCustomerName').textContent = conversation.name;
+      document.getElementById('chatOrderInfo').textContent = conversation.preview;
+      document.querySelector('.chat-header .chat-avatar').textContent = conversation.initials;
+      conversation.unread = 0;
+      renderConversations();
+      document.querySelector('.messages-layout').classList.add('show-chat');
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    conversationList.addEventListener('click', event => {
+      const button = event.target.closest('[data-conversation-id]');
+      if (button) selectConversation(Number(button.dataset.conversationId));
+    });
+    document.querySelector('.back-chat-btn').addEventListener('click', () => {
+      document.querySelector('.messages-layout').classList.remove('show-chat');
+    });
 
     let requestState = {
       status: "Open",
@@ -1195,22 +1231,24 @@
           <button
             type="button"
             class="conversation-item
-              ${conversation.id === 1 ? "active" : ""}"
+              ${conversation.id === activeConversationId ? "active" : ""}"
+            data-conversation-id="${conversation.id}"
+            aria-label="Open conversation with ${escapeHTML(conversation.name)}"
           >
 
             <span class="conversation-avatar">
-              ${conversation.initials}
+              ${escapeHTML(conversation.initials)}
             </span>
 
 
             <span class="conversation-info">
 
               <strong>
-                ${conversation.name}
+                ${escapeHTML(conversation.name)}
               </strong>
 
               <span>
-                ${conversation.preview}
+                ${escapeHTML(conversation.preview)}
               </span>
 
             </span>
@@ -1219,7 +1257,7 @@
             <span class="conversation-meta">
 
               <small>
-                ${conversation.time}
+                ${escapeHTML(conversation.time)}
               </small>
 
               ${
@@ -1580,6 +1618,8 @@
 
 
       chatBody.appendChild(row);
+      const emptyState = chatBody.querySelector('.chat-empty-state');
+      if (emptyState) emptyState.remove();
 
       messageInput.value = "";
 
