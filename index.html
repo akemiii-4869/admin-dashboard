@@ -16,6 +16,7 @@
   >
 
   <link rel="stylesheet" href="styles/dashboard.css">
+  <link rel="stylesheet" href="styles/mobile-nav.css">
 </head>
 
 <body>
@@ -25,6 +26,7 @@
   ====================================================== -->
 
   <header class="topbar">
+    <button type="button" class="mobile-menu-button" aria-label="Open navigation" aria-controls="mobileSidebar" aria-expanded="false">☰</button>
 
     <a href="dashboard.html" class="brand">
 
@@ -109,7 +111,7 @@
          SIDEBAR
     ==================================================== -->
 
-    <aside class="sidebar">
+    <aside class="sidebar" id="mobileSidebar">
 
       <nav class="sidenav">
 
@@ -1514,6 +1516,8 @@
 
   </script>
 
+  <div class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <script src="mobile-nav.js"></script>
 </body>
 
 </html>
