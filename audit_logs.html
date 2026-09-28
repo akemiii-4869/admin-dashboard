@@ -532,7 +532,7 @@
 
           <div>
             <h2>Activity History</h2>
-            <p>System and administrator activity records.</p>
+            <p>Sample activity for the frontend preview.</p>
           </div>
 
           <button
@@ -573,7 +573,6 @@
                 <th>Action</th>
                 <th>Module</th>
                 <th>Description</th>
-                <th>IP Address</th>
               </tr>
 
             </thead>
@@ -582,7 +581,7 @@
 
               <tr class="empty-table-row">
 
-                <td colspan="6">
+                <td colspan="5">
 
                   <div class="empty-state">
 
@@ -671,7 +670,13 @@
        Backend team can replace this array with API/database data.
     ========================================================== */
 
-    const auditLogs = [];
+    const auditLogs = [
+      { date: new Date(Date.now() - 12 * 60000).toISOString(), user: 'Admin User', role: 'Admin', action: 'Status Change', module: 'Orders', description: 'Changed Order #001 from Pending to Processing.' },
+      { date: new Date(Date.now() - 48 * 60000).toISOString(), user: 'Admin User', role: 'Admin', action: 'Update', module: 'Products', description: 'Updated the price and stock of Heart Necklace.' },
+      { date: new Date(Date.now() - 125 * 60000).toISOString(), user: 'Admin User', role: 'Admin', action: 'Create', module: 'Products', description: 'Added the Earrings category.' },
+      { date: new Date(Date.now() - 24 * 3600000).toISOString(), user: 'Admin User', role: 'Admin', action: 'Login', module: 'Authentication', description: 'Signed in to the admin dashboard.' },
+      { date: new Date(Date.now() - 48 * 3600000).toISOString(), user: 'Admin User', role: 'Admin', action: 'Update', module: 'Settings', description: 'Updated store contact information.' }
+    ];
 
 
     /* ==========================================================
@@ -790,8 +795,7 @@
           log.user,
           log.action,
           log.module,
-          log.description,
-          log.ipAddress
+          log.description
         ]
           .join(" ")
           .toLowerCase();
@@ -854,6 +858,7 @@
         getFilteredLogs();
 
 
+
       auditTableBody.innerHTML = "";
 
 
@@ -863,7 +868,7 @@
 
           <tr class="empty-table-row">
 
-            <td colspan="6">
+            <td colspan="5">
 
               <div class="empty-state">
 
@@ -913,11 +918,11 @@
 
         row.innerHTML = `
 
-          <td class="date-cell">
+          <td class="date-cell" data-label="Date &amp; Time">
             ${escapeHTML(formatDateTime(log.date))}
           </td>
 
-          <td>
+          <td data-label="Admin / User">
 
             <div class="user-cell">
 
@@ -953,7 +958,7 @@
 
           </td>
 
-          <td>
+          <td data-label="Action">
 
             <span
               class="action-badge ${getActionClass(log.action)}"
@@ -963,17 +968,14 @@
 
           </td>
 
-          <td>
+          <td data-label="Module">
             ${escapeHTML(log.module || "—")}
           </td>
 
-          <td class="description-cell">
+          <td class="description-cell" data-label="Description">
             ${escapeHTML(log.description || "—")}
           </td>
 
-          <td class="ip-cell">
-            ${escapeHTML(log.ipAddress || "—")}
-          </td>
 
         `;
 
