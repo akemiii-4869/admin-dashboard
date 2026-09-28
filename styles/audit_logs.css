@@ -1,1723 +1,973 @@
-<!DOCTYPE html>
-<html lang="en">
+/* ===============================================================
+   IFC CRAFTS — AUDIT LOGS
+================================================================ */
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+:root {
+  --black: #111111;
+  --white: #ffffff;
+  --text: #222222;
+  --muted: #777777;
+  --line: #dddddd;
+  --soft: #f5f5f5;
+}
 
-  <title>IFC Crafts — Users</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+/* ===============================================================
+   RESET
+================================================================ */
 
-  <link rel="stylesheet" href="styles/users.css">
-  <link rel="stylesheet" href="styles/mobile-nav.css">
-</head>
+* {
+  box-sizing: border-box;
+}
 
-<body>
+html,
+body {
+  margin: 0;
+  padding: 0;
 
-  <!-- ==================== TOPBAR ==================== -->
+  min-height: 100%;
 
-  <header class="topbar">
-    <button type="button" class="mobile-menu-button" aria-label="Open navigation" aria-controls="mobileSidebar" aria-expanded="false">☰</button>
+  font-family: "Inter", Arial, sans-serif;
 
-    <div class="brand">
+  background: #ffffff;
+  color: var(--text);
+}
 
-      <div class="brand-mark">
-        <img
-          src="images/ifc_crafts.jpg"
-          alt="IFC Crafts"
-          class="nav-logo"
-        >
-      </div>
+button,
+input,
+select {
+  font-family: inherit;
+}
 
-      <span class="brand-name">
-        IFC CRAFTS
-      </span>
+button,
+select {
+  cursor: pointer;
+}
 
-    </div>
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
 
-    <div class="topbar-actions">
+/* ===============================================================
+   TOPBAR
+================================================================ */
 
-      <button
-        type="button"
-        class="icon-btn"
-        onclick="window.location.href='notifications.html'"
-        aria-label="Notifications"
-      >
+.topbar {
+  position: sticky;
+  top: 0;
 
-        <svg
-          viewBox="0 0 24 24"
-          width="18"
-          height="18"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-        >
-          <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
-          <path d="M10 21h4"/>
-        </svg>
+  z-index: 100;
 
-        <span class="icon-dot"></span>
+  height: 64px;
 
-      </button>
+  display: flex;
+  align-items: center;
 
+  padding: 0 24px;
 
-      <button
-        type="button"
-        class="profile-chip"
-      >
+  background: #111111;
+  color: #ffffff;
+}
 
-        <span class="avatar">
+.brand {
+  width: 220px;
 
-          <svg
-            viewBox="0 0 24 24"
-            width="16"
-            height="16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-          >
-            <circle cx="12" cy="8" r="4"/>
-            <path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>
-          </svg>
+  display: flex;
+  align-items: center;
 
-        </span>
+  gap: 10px;
+}
 
-        <span>Admin</span>
+.brand-mark {
+  width: 34px;
+  height: 34px;
 
-      </button>
+  flex-shrink: 0;
 
-    </div>
+  overflow: hidden;
 
-  </header>
+  border-radius: 50%;
+}
 
+.nav-logo {
+  width: 100%;
+  height: 100%;
 
-  <!-- ==================== PAGE SHELL ==================== -->
+  object-fit: cover;
+}
 
-  <div class="shell">
+.brand-name {
+  color: #ffffff;
 
+  font-family: Georgia, serif;
 
-    <!-- ==================== SIDEBAR ==================== -->
+  font-size: 1.6rem;
+  font-weight: 700;
+}
 
-    <aside class="sidebar" id="mobileSidebar">
+.topbar-actions {
+  margin-left: auto;
 
-      <nav class="sidenav">
+  display: flex;
+  align-items: center;
 
+  gap: 16px;
+}
 
-        <!-- DASHBOARD -->
+.icon-btn {
+  position: relative;
 
-        <a
-          href="index.html"
-          class="sidenav-link"
-        >
+  width: 36px;
+  height: 36px;
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <rect x="3" y="3" width="7" height="7"></rect>
-            <rect x="14" y="3" width="7" height="7"></rect>
-            <rect x="3" y="14" width="7" height="7"></rect>
-            <rect x="14" y="14" width="7" height="7"></rect>
-          </svg>
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-          <span>Dashboard</span>
-
-        </a>
+  padding: 0;
 
-
-        <!-- ORDERS -->
+  border: 1px solid #ffffff;
+  border-radius: 50%;
 
-        <a
-          href="orders.html"
-          class="sidenav-link"
-        >
+  background: transparent;
+  color: #ffffff;
+}
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M6 2h12v20H6z"></path>
-            <path d="M9 6h6"></path>
-            <path d="M9 10h6"></path>
-            <path d="M9 14h4"></path>
-          </svg>
-
-          <span>Orders</span>
+.icon-dot {
+  position: absolute;
 
-        </a>
+  top: 6px;
+  right: 7px;
 
+  width: 7px;
+  height: 7px;
 
-        <!-- PRODUCTS & SERVICES -->
+  border: 1px solid #111111;
+  border-radius: 50%;
 
-        <a
-          href="products_services.html"
-          class="sidenav-link"
-        >
+  background: #df5b5b;
+}
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
-            <path d="m3.3 7 8.7 5 8.7-5"></path>
-            <path d="M12 22V12"></path>
-          </svg>
+.profile-chip {
+  display: flex;
+  align-items: center;
 
-          <span>Products &amp; Services</span>
+  gap: 8px;
 
-        </a>
+  padding: 0;
 
+  border: none;
 
-        <!-- USERS -->
+  background: transparent;
+  color: #ffffff;
 
-        <a
-          href="users.html"
-          class="sidenav-link active"
-        >
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-            <circle cx="9" cy="7" r="4"></circle>
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-          </svg>
+.avatar {
+  width: 30px;
+  height: 30px;
 
-          <span>Users</span>
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-        </a>
+  border: 1.5px solid #ffffff;
+  border-radius: 50%;
+}
 
 
-        <!-- MESSAGES -->
+/* ===============================================================
+   SHELL
+================================================================ */
 
-        <a
-          href="messages.html"
-          class="sidenav-link"
-        >
+.shell {
+  display: flex;
+  align-items: flex-start;
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-4-.9L3 21l1.9-4.9A8.5 8.5 0 1 1 21 11.5Z"></path>
-            <path d="M8 12h.01"></path>
-            <path d="M12 12h.01"></path>
-            <path d="M16 12h.01"></path>
-          </svg>
+  min-height: calc(100vh - 64px);
+}
 
-          <span>Messages</span>
 
-        </a>
+/* ===============================================================
+   SIDEBAR
+================================================================ */
 
+.sidebar {
+  position: sticky;
+  top: 64px;
 
-        <!-- NOTIFICATIONS -->
+  width: 220px;
+  min-height: calc(100vh - 64px);
 
-        <a
-          href="notifications.html"
-          class="sidenav-link"
-        >
+  flex-shrink: 0;
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-          </svg>
+  padding: 20px 14px;
 
-          <span>Notifications</span>
+  background: #ffffff;
 
-        </a>
+  border-right: 1px solid #dddddd;
+}
 
+.sidenav {
+  display: flex;
+  flex-direction: column;
 
-        <!-- REVIEWS -->
+  gap: 4px;
+}
 
-        <a
-          href="reviews.html"
-          class="sidenav-link"
-        >
+.sidenav-link {
+  width: 100%;
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"></path>
-          </svg>
+  display: flex;
+  align-items: center;
 
-          <span>Reviews</span>
+  gap: 12px;
 
-        </a>
+  padding: 10px 14px;
 
+  border-radius: 10px;
 
-        <!-- REPORTS -->
+  color: #1c1c1c;
 
-        <a
-          href="reports.html"
-          class="sidenav-link"
-        >
+  font-size: 0.9rem;
+  font-weight: 600;
+}
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M4 19V5"></path>
-            <path d="M4 5h16l-2 4 2 4H4"></path>
-          </svg>
+.sidenav-link:hover {
+  background: #eeeeee;
+}
 
-          <span>Reports</span>
+.sidenav-link.active {
+  background: #111111;
+  color: #ffffff;
+}
 
-        </a>
 
+/* ===============================================================
+   MAIN
+================================================================ */
 
-        <!-- AUDIT LOGS -->
+.main {
+  flex: 1;
 
-        <a
-          href="audit_logs.html"
-          class="sidenav-link"
-        >
+  min-width: 0;
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M3 3h18v18H3z"></path>
-            <path d="M7 7h10"></path>
-            <path d="M7 11h10"></path>
-            <path d="M7 15h6"></path>
-          </svg>
+  padding: 26px 30px 40px;
+}
 
-          <span>Audit Logs</span>
 
-        </a>
+/* ===============================================================
+   PAGE HEADER
+================================================================ */
 
+.page-header {
+  width: 100%;
 
-        <!-- SETTINGS -->
+  margin-bottom: 14px;
 
-        <a
-          href="settings.html"
-          class="sidenav-link"
-        >
+  padding: 14px 18px;
 
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d="M19.43 12.98c.04-.32.07-.65.07-.98s-.02-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.37-.31-.6-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98L14.5 2.42C14.47 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.5.42L9.12 5.07c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.08-.48 0-.6.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.08.65-.08.98s.03.66.08.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.37.31.6.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.38-2.65c.61-.25 1.17-.58 1.69-.98l2.49 1c.23.08.48 0 .6-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65ZM12 15.5A3.5 3.5 0 1 1 12 8a3.5 3.5 0 0 1 0 7.5Z"/>
-          </svg>
+  border: 2px solid #111111;
+  border-radius: 14px;
 
-          <span>Settings</span>
+  background: #ffffff;
+}
 
-        </a>
+.page-header h1 {
+  margin: 0;
 
-      </nav>
+  font-size: 1.5rem;
+  font-weight: 800;
 
-    </aside>
+  line-height: 1.05;
+}
 
+.page-header p {
+  margin: 4px 0 0;
 
-    <!-- ==================== MAIN ==================== -->
+  color: #777777;
 
-    <main class="main">
+  font-size: 0.72rem;
+}
 
 
-      <!-- PAGE HEADER -->
+/* ===============================================================
+   SUMMARY CARDS
+================================================================ */
 
-      <section class="page-header">
+.audit-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
-        <h1>USERS</h1>
+  gap: 14px;
 
-        <p>
-          Manage registered customers.
-        </p>
+  margin-bottom: 14px;
+}
 
-      </section>
+.audit-stat-card {
+  min-width: 0;
+  min-height: 92px;
 
+  display: flex;
+  align-items: center;
 
-      <!-- ==================== USER STATS ==================== -->
+  gap: 13px;
 
-      <section class="user-stats">
+  padding: 15px 17px;
 
+  border: 2px solid #111111;
+  border-radius: 14px;
 
-        <!-- TOTAL USERS -->
+  background: #ffffff;
+}
 
-        <button
-          type="button"
-          class="user-stat-card active"
-          data-user-filter="all"
-        >
+.stat-icon {
+  width: 42px;
+  height: 42px;
 
-          <span class="user-stat-icon">
+  flex: 0 0 42px;
 
-            <svg
-              viewBox="0 0 24 24"
-              width="27"
-              height="27"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-            >
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-          </span>
+  border: 1.5px solid #111111;
+  border-radius: 50%;
+}
 
-          <span class="user-stat-content">
-            <span class="user-stat-label">Total Users</span>
-            <strong id="statTotalUsers">0</strong>
-          </span>
+.audit-stat-card > div:last-child {
+  display: flex;
+  flex-direction: column;
 
-        </button>
+  gap: 4px;
+}
 
+.audit-stat-card span {
+  color: #666666;
 
-        <!-- ACTIVE -->
+  font-size: 0.63rem;
+  font-weight: 700;
+}
 
-        <button
-          type="button"
-          class="user-stat-card"
-          data-user-filter="active"
-        >
+.audit-stat-card strong {
+  color: #111111;
 
-          <span class="user-stat-icon">
+  font-size: 1.45rem;
+  font-weight: 800;
+}
 
-            <svg
-              viewBox="0 0 24 24"
-              width="27"
-              height="27"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-            >
-              <circle cx="10" cy="7" r="4"/>
-              <path d="M3 21c0-4 3.1-7 7-7 2.2 0 4.1.9 5.4 2.3"/>
-              <circle cx="17" cy="17" r="4"/>
-              <path d="m15.5 17 1 1 2-2"/>
-            </svg>
 
-          </span>
+/* ===============================================================
+   TOOLBAR
+================================================================ */
 
-          <span class="user-stat-content">
-            <span class="user-stat-label">Active</span>
-            <strong id="statActiveUsers">0</strong>
-          </span>
+.audit-toolbar {
+  display: grid;
+  grid-template-columns:
+    minmax(260px, 1fr)
+    180px
+    200px
+    175px;
 
-        </button>
+  gap: 12px;
 
+  margin-bottom: 14px;
 
-        <!-- INACTIVE -->
+  padding: 12px 14px;
 
-        <button
-          type="button"
-          class="user-stat-card"
-          data-user-filter="inactive"
-        >
+  border: 1.5px solid #111111;
+  border-radius: 10px;
 
-          <span class="user-stat-icon">
+  background: #ffffff;
+}
 
-            <svg
-              viewBox="0 0 24 24"
-              width="27"
-              height="27"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-            >
-              <circle cx="12" cy="6" r="3"/>
-              <path d="M6 20v-2a6 6 0 0 1 12 0v2"/>
-              <rect x="5" y="15" width="14" height="7" rx="2"/>
-              <path d="m10 17 4 3"/>
-              <path d="m14 17-4 3"/>
-            </svg>
+.search-field {
+  height: 38px;
 
-          </span>
+  display: flex;
+  align-items: center;
 
-          <span class="user-stat-content">
-            <span class="user-stat-label">Inactive</span>
-            <strong id="statInactiveUsers">0</strong>
-          </span>
+  gap: 8px;
 
-        </button>
+  padding: 0 11px;
 
+  border: 1px solid #999999;
+  border-radius: 6px;
 
-        <!-- BANNED -->
+  background: #ffffff;
+}
 
-        <button
-          type="button"
-          class="user-stat-card"
-          data-user-filter="banned"
-        >
+.search-field svg {
+  flex-shrink: 0;
 
-          <span class="user-stat-icon">
+  color: #777777;
+}
 
-            <svg
-              viewBox="0 0 24 24"
-              width="27"
-              height="27"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-            >
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M6 18 18 6"/>
-            </svg>
+.search-field input {
+  width: 100%;
 
-          </span>
+  border: none;
+  outline: none;
 
-          <span class="user-stat-content">
-            <span class="user-stat-label">Banned</span>
-            <strong id="statBannedUsers">0</strong>
-          </span>
+  background: transparent;
 
-        </button>
+  color: #444444;
 
-      </section>
+  font-size: 0.65rem;
+}
 
+.search-field input::placeholder {
+  color: #aaaaaa;
+}
 
-      <!-- ==================== USER TABS ==================== -->
 
-      <div class="user-tabs">
+/* ===============================================================
+   FILTER SELECT
+================================================================ */
 
-        <button
-          type="button"
-          class="user-tab active"
-          data-tab="all"
-        >
-          All Users
-        </button>
+.filter-select {
+  width: 100%;
+  height: 38px;
 
-        <button
-          type="button"
-          class="user-tab"
-          data-tab="customer"
-        >
-          Customers
-        </button>
+  padding: 0 42px 0 13px;
 
-        <button
-          type="button"
-          class="user-tab"
-          data-tab="admin"
-        >
-          Admins
-        </button>
+  border: 1px solid #999999;
+  border-radius: 6px;
 
-        <button
-          type="button"
-          class="user-tab"
-          data-tab="banned"
-        >
-          Banned
-        </button>
+  outline: none;
 
-      </div>
+  background-color: #ffffff;
+  color: #555555;
 
+  font-size: 0.65rem;
 
-      <!-- ==================== TOOLBAR ==================== -->
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 
-      <section class="user-toolbar">
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' fill='none' stroke='%23444' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 
+  background-repeat: no-repeat;
 
-        <!-- SEARCH -->
+  /* Arrow is intentionally slightly inside */
+  background-position: right 18px center;
 
-        <label class="search-field">
+  background-size: 11px 7px;
+}
 
-          <svg
-            viewBox="0 0 24 24"
-            width="17"
-            height="17"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.7"
-          >
-            <circle cx="11" cy="11" r="7"/>
-            <path d="m20 20-3.5-3.5"/>
-          </svg>
+.date-filter {
+  width: 100%;
+  height: 38px;
 
-          <input
-            type="search"
-            id="userSearch"
-            placeholder="Search users..."
-            autocomplete="off"
-          >
+  padding: 0 12px;
 
-        </label>
+  border: 1px solid #999999;
+  border-radius: 6px;
 
+  outline: none;
 
-        <!-- ROLE FILTER -->
+  background: #ffffff;
+  color: #555555;
 
-        <select
-          id="roleFilter"
-          class="select-field"
-        >
-          <option value="all">All Roles</option>
-          <option value="Customer">Customer</option>
-          <option value="Admin">Admin</option>
-        </select>
+  font-size: 0.65rem;
+}
 
 
-        <!-- STATUS FILTER -->
+/* ===============================================================
+   TABLE CARD
+================================================================ */
 
-        <select
-          id="statusFilter"
-          class="select-field"
-        >
-          <option value="all">Status</option>
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
-          <option value="Banned">Banned</option>
-        </select>
+.audit-table-card {
+  width: 100%;
 
+  border: 2px solid #111111;
+  border-radius: 14px;
 
-        <!-- EXPORT -->
+  background: #ffffff;
 
-        <button
-          type="button"
-          class="export-btn"
-          id="exportUsersBtn"
-        >
+  /*
+    Important:
+    We don't use overflow:hidden here because it can clip
+    future dropdown menus / action menus.
+  */
+}
 
-          <svg
-            viewBox="0 0 24 24"
-            width="16"
-            height="16"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M12 3v12"/>
-            <path d="m7 10 5 5 5-5"/>
-            <path d="M5 21h14"/>
-          </svg>
+.table-heading {
+  min-height: 62px;
 
-          <span>Export</span>
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-        </button>
+  gap: 15px;
 
-      </section>
+  padding: 12px 16px;
 
+  border-bottom: 1px solid #cccccc;
+}
 
-      <!-- ==================== USERS TABLE ==================== -->
+.table-heading h2 {
+  margin: 0;
 
-      <section class="users-panel">
+  font-size: 0.82rem;
+  font-weight: 800;
+}
 
-        <div class="users-table-wrap">
+.table-heading p {
+  margin: 3px 0 0;
 
-          <table class="users-table">
+  color: #999999;
 
-            <thead>
+  font-size: 0.56rem;
+}
 
-              <tr>
+.export-btn {
+  height: 36px;
 
-                <th class="checkbox-column">
-                  <input
-                    type="checkbox"
-                    id="selectAllUsers"
-                    aria-label="Select all users"
-                  >
-                </th>
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-                <th>User</th>
-                <th>Email</th>
-                <th>Contact No.</th>
-                <th>Address</th>
-                <th>Role</th>
-                <th>Status</th>
-                <th>Joined</th>
-                <th class="action-column">Action</th>
+  gap: 7px;
 
-              </tr>
+  padding: 0 17px;
 
-            </thead>
+  border: 1.5px solid #111111;
+  border-radius: 6px;
 
-            <tbody id="usersTableBody">
+  background: #111111;
+  color: #ffffff;
 
-              <!-- JS RENDERS USERS HERE -->
+  font-size: 0.62rem;
+  font-weight: 700;
+}
 
-            </tbody>
 
-          </table>
+/* ===============================================================
+   TABLE
+================================================================ */
 
-        </div>
+.table-wrapper {
+  width: 100%;
 
-      </section>
+  /*
+    Desktop table itself won't have that annoying vertical scroll.
+    Horizontal scroll only appears if screen becomes too small.
+  */
 
-    </main>
+  overflow-x: auto;
+  overflow-y: visible;
+}
 
-  </div>
+.audit-table {
+  width: 100%;
 
+  border-collapse: collapse;
 
-  <!-- ==================== USER DETAILS MODAL ==================== -->
+  table-layout: fixed;
+}
 
-  <div
-    class="modal-overlay"
-    id="userModal"
-    aria-hidden="true"
-  >
+.audit-table th {
+  padding: 12px 14px;
 
-    <section
-      class="user-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="userModalTitle"
-    >
+  border-bottom: 1px solid #cccccc;
 
-      <div class="user-modal-header">
+  color: #333333;
 
-        <div>
-          <span class="modal-label">User Details</span>
-          <h2 id="userModalTitle">User</h2>
-        </div>
+  font-size: 0.59rem;
+  font-weight: 700;
 
-        <button
-          type="button"
-          class="modal-close-btn"
-          id="closeUserModal"
-          aria-label="Close"
-        >
-          &times;
-        </button>
+  text-align: left;
 
-      </div>
+  white-space: nowrap;
+}
 
+.audit-table td {
+  padding: 13px 14px;
 
-      <div class="user-modal-body">
+  border-bottom: 1px solid #eeeeee;
 
+  color: #666666;
 
-        <!-- USER PROFILE -->
+  font-size: 0.58rem;
 
-        <div class="modal-user-profile">
+  vertical-align: middle;
+}
 
-          <div
-            class="modal-user-avatar"
-            id="modalUserAvatar"
-          >
-            U
-          </div>
+.audit-table tbody tr:last-child td {
+  border-bottom: none;
+}
 
-          <div>
 
-            <strong id="modalUserName">
-              —
-            </strong>
+/* TABLE COLUMN WIDTHS */
 
-            <span id="modalUsername">
-              —
-            </span>
+.audit-table th:nth-child(1) {
+  width: 145px;
+}
 
-          </div>
+.audit-table th:nth-child(2) {
+  width: 175px;
+}
 
-        </div>
+.audit-table th:nth-child(3) {
+  width: 115px;
+}
 
+.audit-table th:nth-child(4) {
+  width: 145px;
+}
 
-        <!-- DETAILS -->
+.audit-table th:nth-child(6) {
+  width: 125px;
+}
 
-        <div class="user-detail-list">
 
-          <div class="user-detail-row">
-            <span>Email</span>
-            <strong id="modalUserEmail">—</strong>
-          </div>
+/* ===============================================================
+   USER CELL
+================================================================ */
 
-          <div class="user-detail-row">
-            <span>Contact No.</span>
-            <strong id="modalUserContact">—</strong>
-          </div>
+.user-cell {
+  display: flex;
+  align-items: center;
 
-          <div class="user-detail-row">
-            <span>Address</span>
-            <strong id="modalUserAddress">—</strong>
-          </div>
+  gap: 9px;
+}
 
-          <div class="user-detail-row">
-            <span>Role</span>
-            <strong id="modalUserRole">—</strong>
-          </div>
+.user-avatar {
+  width: 31px;
+  height: 31px;
 
-          <div class="user-detail-row">
-            <span>Status</span>
-            <strong id="modalUserStatus">—</strong>
-          </div>
+  flex: 0 0 31px;
 
-          <div class="user-detail-row">
-            <span>Joined</span>
-            <strong id="modalUserJoined">—</strong>
-          </div>
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-        </div>
+  border: 1px solid #111111;
+  border-radius: 50%;
+}
 
+.user-cell > div {
+  min-width: 0;
 
-        <!-- ADMIN ACTION -->
+  display: flex;
+  flex-direction: column;
 
-        <div class="user-admin-box">
+  gap: 2px;
+}
 
-          <span class="admin-box-label">
-            Manage User
-          </span>
+.user-cell strong {
+  overflow: hidden;
 
-          <select
-            id="modalStatusSelect"
-            class="modal-select"
-          >
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
-            <option value="Banned">Banned</option>
-          </select>
+  color: #333333;
 
-          <button
-            type="button"
-            class="update-user-btn"
-            id="updateUserStatusBtn"
-          >
-            Update Status
-          </button>
+  font-size: 0.59rem;
 
-        </div>
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-      </div>
+.user-cell small {
+  color: #999999;
 
+  font-size: 0.5rem;
+}
 
-      <div class="user-modal-footer">
 
-        <button
-          type="button"
-          class="close-user-btn"
-          id="closeUserModalFooter"
-        >
-          Close
-        </button>
+/* ===============================================================
+   ACTION BADGES
+================================================================ */
 
-      </div>
+.action-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-    </section>
+  min-width: 66px;
 
-  </div>
+  padding: 5px 9px;
 
+  border-radius: 999px;
 
-  <!-- ==================== SCRIPT ==================== -->
+  background: #eeeeee;
+  color: #444444;
 
-  <script>
+  font-size: 0.51rem;
+  font-weight: 700;
+}
 
-    /* ===============================================================
-       FRONTEND-ONLY SAMPLE DATA
-       Replace this array with database/API data later.
-    =============================================================== */
+.action-badge.login {
+  background: #eeeeee;
+  color: #333333;
+}
 
-    const users = [
-      {
-        id: 1,
-        name: "Maria Santos",
-        username: "@maria_santos",
-        email: "maria@gmail.com",
-        contact: "09567966487",
-        address: "Taytay, Rizal",
-        role: "Customer",
-        status: "Active",
-        joined: "08/15/2025"
-      },
+.action-badge.logout {
+  background: #e6e6e6;
+  color: #555555;
+}
 
-      {
-        id: 2,
-        name: "Angela Cruz",
-        username: "@angela_cruz",
-        email: "angela@gmail.com",
-        contact: "09171234567",
-        address: "Antipolo, Rizal",
-        role: "Customer",
-        status: "Inactive",
-        joined: "08/20/2025"
-      },
+.action-badge.create {
+  background: #222222;
+  color: #ffffff;
+}
 
-      {
-        id: 3,
-        name: "IFC Administrator",
-        username: "@ifc_admin",
-        email: "admin@ifccrafts.com",
-        contact: "09181234567",
-        address: "Rizal",
-        role: "Admin",
-        status: "Active",
-        joined: "07/10/2025"
-      },
+.action-badge.update {
+  background: #666666;
+  color: #ffffff;
+}
 
-      {
-        id: 4,
-        name: "Sample User",
-        username: "@sample_user",
-        email: "sample@gmail.com",
-        contact: "09991234567",
-        address: "Cainta, Rizal",
-        role: "Customer",
-        status: "Banned",
-        joined: "09/01/2025"
-      }
-    ];
+.action-badge.status {
+  background: #888888;
+  color: #ffffff;
+}
 
+.action-badge.delete {
+  background: #f6e5e5;
+  color: #8c2727;
+}
 
-    /* ===============================================================
-       ELEMENTS
-    =============================================================== */
 
-    const usersTableBody =
-      document.getElementById("usersTableBody");
+/* ===============================================================
+   OTHER TABLE CELLS
+================================================================ */
 
-    const userSearch =
-      document.getElementById("userSearch");
+.date-cell,
+.ip-cell {
+  color: #888888 !important;
 
-    const roleFilter =
-      document.getElementById("roleFilter");
+  white-space: nowrap;
+}
 
-    const statusFilter =
-      document.getElementById("statusFilter");
+.description-cell {
+  line-height: 1.45;
 
-    const selectAllUsers =
-      document.getElementById("selectAllUsers");
+  overflow-wrap: anywhere;
+}
 
-    const statTotalUsers =
-      document.getElementById("statTotalUsers");
 
-    const statActiveUsers =
-      document.getElementById("statActiveUsers");
+/* ===============================================================
+   EMPTY STATE
+================================================================ */
 
-    const statInactiveUsers =
-      document.getElementById("statInactiveUsers");
+.empty-table-row td {
+  padding: 0 !important;
+}
 
-    const statBannedUsers =
-      document.getElementById("statBannedUsers");
+.empty-state {
+  min-height: 230px;
 
-    const userModal =
-      document.getElementById("userModal");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-    const modalUserTitle =
-      document.getElementById("userModalTitle");
+  gap: 8px;
 
-    const modalUserAvatar =
-      document.getElementById("modalUserAvatar");
+  color: #aaaaaa;
+}
 
-    const modalUserName =
-      document.getElementById("modalUserName");
+.empty-state svg {
+  color: #999999;
+}
 
-    const modalUsername =
-      document.getElementById("modalUsername");
+.empty-state strong {
+  color: #555555;
 
-    const modalUserEmail =
-      document.getElementById("modalUserEmail");
+  font-size: 0.7rem;
+}
 
-    const modalUserContact =
-      document.getElementById("modalUserContact");
+.empty-state span {
+  color: #999999;
 
-    const modalUserAddress =
-      document.getElementById("modalUserAddress");
+  font-size: 0.55rem;
+}
 
-    const modalUserRole =
-      document.getElementById("modalUserRole");
 
-    const modalUserStatus =
-      document.getElementById("modalUserStatus");
+/* ===============================================================
+   TABLE FOOTER
+================================================================ */
 
-    const modalUserJoined =
-      document.getElementById("modalUserJoined");
+.table-footer {
+  min-height: 54px;
 
-    const modalStatusSelect =
-      document.getElementById("modalStatusSelect");
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    const updateUserStatusBtn =
-      document.getElementById("updateUserStatusBtn");
+  gap: 15px;
 
+  padding: 10px 15px;
 
-    let activeTab = "all";
-    let activeStatFilter = "all";
-    let selectedUserId = null;
+  border-top: 1px solid #dddddd;
+}
 
+.table-footer > span {
+  color: #888888;
 
-    /* ===============================================================
-       HELPERS
-    =============================================================== */
+  font-size: 0.56rem;
+}
 
-    function normalize(value) {
-      return String(value || "")
-        .trim()
-        .toLowerCase();
-    }
+.pagination {
+  display: flex;
+  align-items: center;
 
+  gap: 5px;
+}
 
-    function getInitials(name) {
+.page-btn,
+.page-number {
+  height: 29px;
 
-      return String(name || "U")
-        .split(" ")
-        .filter(Boolean)
-        .slice(0, 2)
-        .map(part => part[0])
-        .join("")
-        .toUpperCase();
+  padding: 0 10px;
 
-    }
+  border: 1px solid #cccccc;
+  border-radius: 5px;
 
+  background: #ffffff;
+  color: #555555;
 
-    function getStatusClass(status) {
+  font-size: 0.53rem;
+  font-weight: 600;
+}
 
-      switch (normalize(status)) {
+.page-number {
+  min-width: 29px;
 
-        case "active":
-          return "status-active";
+  padding: 0;
+}
 
-        case "inactive":
-          return "status-inactive";
+.page-number.active {
+  border-color: #111111;
 
-        case "banned":
-          return "status-banned";
+  background: #111111;
+  color: #ffffff;
+}
 
-        default:
-          return "";
+.page-btn:disabled {
+  color: #bbbbbb;
 
-      }
+  background: #f7f7f7;
 
-    }
+  cursor: not-allowed;
+}
 
 
-    function getRoleClass(role) {
+/* ===============================================================
+   RESPONSIVE
+================================================================ */
 
-      return normalize(role) === "admin"
-        ? "role-admin"
-        : "role-customer";
+@media (max-width: 1200px) {
 
-    }
+  .audit-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .audit-toolbar {
+    grid-template-columns:
+      minmax(240px, 1fr)
+      1fr
+      1fr;
+  }
 
-    /* ===============================================================
-       STAT COUNTS
-    =============================================================== */
+  .date-filter {
+    grid-column: 1 / -1;
+  }
 
-    function updateStats() {
+}
 
-      statTotalUsers.textContent =
-        users.length;
 
-      statActiveUsers.textContent =
-        users.filter(
-          user => normalize(user.status) === "active"
-        ).length;
+@media (max-width: 900px) {
 
-      statInactiveUsers.textContent =
-        users.filter(
-          user => normalize(user.status) === "inactive"
-        ).length;
+  .sidebar {
+    width: 190px;
+  }
 
-      statBannedUsers.textContent =
-        users.filter(
-          user => normalize(user.status) === "banned"
-        ).length;
+  .main {
+    padding: 20px;
+  }
 
-    }
+  .audit-toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
 
+  .search-field {
+    grid-column: 1 / -1;
+  }
 
-    /* ===============================================================
-       FILTER USERS
-    =============================================================== */
+  .date-filter {
+    grid-column: auto;
+  }
 
-    function getFilteredUsers() {
+}
 
-      const search =
-        normalize(userSearch.value);
 
-      const role =
-        normalize(roleFilter.value);
+@media (max-width: 700px) {
 
-      const status =
-        normalize(statusFilter.value);
+  .sidebar {
+    display: none;
+  }
 
+  .main {
+    padding: 16px;
+  }
 
-      return users.filter(user => {
+}
 
-        const searchableText = normalize(
-          [
-            user.name,
-            user.username,
-            user.email,
-            user.contact,
-            user.address,
-            user.role,
-            user.status
-          ].join(" ")
-        );
 
+@media (max-width: 560px) {
 
-        const matchesSearch =
-          !search ||
-          searchableText.includes(search);
+  .audit-stats {
+    grid-template-columns: 1fr;
+  }
 
+  .audit-toolbar {
+    grid-template-columns: 1fr;
+  }
 
-        const matchesRole =
-          role === "all" ||
-          normalize(user.role) === role;
+  .search-field,
+  .date-filter {
+    grid-column: auto;
+  }
 
+  .table-heading,
+  .table-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
-        const matchesStatus =
-          status === "all" ||
-          normalize(user.status) === status;
+  .export-btn {
+    width: 100%;
+  }
 
+}
 
-        let matchesTab = true;
-
-        if (activeTab === "customer") {
-
-          matchesTab =
-            normalize(user.role) === "customer";
-
-        }
-
-        else if (activeTab === "admin") {
-
-          matchesTab =
-            normalize(user.role) === "admin";
-
-        }
-
-        else if (activeTab === "banned") {
-
-          matchesTab =
-            normalize(user.status) === "banned";
-
-        }
-
-
-        const matchesStat =
-          activeStatFilter === "all" ||
-          normalize(user.status) === activeStatFilter;
-
-
-        return (
-          matchesSearch &&
-          matchesRole &&
-          matchesStatus &&
-          matchesTab &&
-          matchesStat
-        );
-
-      });
-
-    }
-
-
-    /* ===============================================================
-       RENDER TABLE
-    =============================================================== */
-
-    function renderUsers() {
-
-      const filteredUsers =
-        getFilteredUsers();
-
-
-      if (!filteredUsers.length) {
-
-        usersTableBody.innerHTML = `
-          <tr>
-            <td
-              colspan="9"
-              class="empty-row"
-            >
-              No users found.
-            </td>
-          </tr>
-        `;
-
-        return;
-
-      }
-
-
-      usersTableBody.innerHTML =
-        filteredUsers.map(user => `
-
-          <tr>
-
-            <td class="checkbox-column">
-
-              <input
-                type="checkbox"
-                class="user-checkbox"
-                value="${user.id}"
-                aria-label="Select ${user.name}"
-              >
-
-            </td>
-
-
-            <td>
-
-              <div class="user-cell">
-
-                <div class="user-avatar-table">
-                  ${getInitials(user.name)}
-                </div>
-
-                <div class="user-info">
-
-                  <strong>
-                    ${user.name}
-                  </strong>
-
-                  <span>
-                    ${user.username}
-                  </span>
-
-                </div>
-
-              </div>
-
-            </td>
-
-
-            <td class="muted-cell">
-              ${user.email}
-            </td>
-
-
-            <td>
-              ${user.contact}
-            </td>
-
-
-            <td>
-              ${user.address}
-            </td>
-
-
-            <td>
-
-              <span class="role-badge ${getRoleClass(user.role)}">
-                ${user.role}
-              </span>
-
-            </td>
-
-
-            <td>
-
-              <span class="user-status-badge ${getStatusClass(user.status)}">
-                ${user.status}
-              </span>
-
-            </td>
-
-
-            <td>
-              ${user.joined}
-            </td>
-
-
-            <td class="action-column">
-
-              <button
-                type="button"
-                class="user-more-btn"
-                data-user-id="${user.id}"
-                aria-label="View ${user.name}"
-              >
-                •••
-              </button>
-
-            </td>
-
-          </tr>
-
-        `).join("");
-
-    }
-
-
-    /* ===============================================================
-       OPEN USER MODAL
-    =============================================================== */
-
-    function openUserModal(userId) {
-
-      const user =
-        users.find(
-          item => item.id === Number(userId)
-        );
-
-
-      if (!user) {
-        return;
-      }
-
-
-      selectedUserId =
-        user.id;
-
-
-      modalUserTitle.textContent =
-        `User #${String(user.id).padStart(3, "0")}`;
-
-      modalUserAvatar.textContent =
-        getInitials(user.name);
-
-      modalUserName.textContent =
-        user.name;
-
-      modalUsername.textContent =
-        user.username;
-
-      modalUserEmail.textContent =
-        user.email;
-
-      modalUserContact.textContent =
-        user.contact;
-
-      modalUserAddress.textContent =
-        user.address;
-
-      modalUserRole.textContent =
-        user.role;
-
-      modalUserStatus.textContent =
-        user.status;
-
-      modalUserJoined.textContent =
-        user.joined;
-
-      modalStatusSelect.value =
-        user.status;
-
-
-      userModal.classList.add("open");
-
-      userModal.setAttribute(
-        "aria-hidden",
-        "false"
-      );
-
-      document.body.classList.add(
-        "modal-open"
-      );
-
-    }
-
-
-    /* ===============================================================
-       CLOSE USER MODAL
-    =============================================================== */
-
-    function closeUserModal() {
-
-      userModal.classList.remove("open");
-
-      userModal.setAttribute(
-        "aria-hidden",
-        "true"
-      );
-
-      document.body.classList.remove(
-        "modal-open"
-      );
-
-      selectedUserId = null;
-
-    }
-
-
-    /* ===============================================================
-       UPDATE USER STATUS
-    =============================================================== */
-
-    updateUserStatusBtn.addEventListener(
-      "click",
-      () => {
-
-        const user =
-          users.find(
-            item =>
-              item.id === selectedUserId
-          );
-
-
-        if (!user) {
-          return;
-        }
-
-
-        user.status =
-          modalStatusSelect.value;
-
-
-        modalUserStatus.textContent =
-          user.status;
-
-
-        updateStats();
-        renderUsers();
-
-      }
-    );
-
-
-    /* ===============================================================
-       SEARCH + FILTERS
-    =============================================================== */
-
-    userSearch.addEventListener(
-      "input",
-      renderUsers
-    );
-
-
-    roleFilter.addEventListener(
-      "change",
-      renderUsers
-    );
-
-
-    statusFilter.addEventListener(
-      "change",
-      renderUsers
-    );
-
-
-    /* ===============================================================
-       TABS
-    =============================================================== */
-
-    document.querySelectorAll(
-      ".user-tab"
-    ).forEach(button => {
-
-      button.addEventListener(
-        "click",
-        () => {
-
-          activeTab =
-            button.dataset.tab;
-
-
-          document.querySelectorAll(
-            ".user-tab"
-          ).forEach(tab => {
-
-            tab.classList.remove(
-              "active"
-            );
-
-          });
-
-
-          button.classList.add(
-            "active"
-          );
-
-
-          activeStatFilter = "all";
-
-
-          document.querySelectorAll(
-            ".user-stat-card"
-          ).forEach(card => {
-
-            card.classList.remove(
-              "active"
-            );
-
-          });
-
-
-          document.querySelector(
-            '[data-user-filter="all"]'
-          )?.classList.add("active");
-
-
-          renderUsers();
-
-        }
-      );
-
-    });
-
-
-    /* ===============================================================
-       STAT CARD FILTER
-    =============================================================== */
-
-    document.querySelectorAll(
-      ".user-stat-card"
-    ).forEach(card => {
-
-      card.addEventListener(
-        "click",
-        () => {
-
-          activeStatFilter =
-            card.dataset.userFilter;
-
-
-          document.querySelectorAll(
-            ".user-stat-card"
-          ).forEach(item => {
-
-            item.classList.remove(
-              "active"
-            );
-
-          });
-
-
-          card.classList.add(
-            "active"
-          );
-
-
-          renderUsers();
-
-        }
-      );
-
-    });
-
-
-    /* ===============================================================
-       TABLE ACTION
-    =============================================================== */
-
-    usersTableBody.addEventListener(
-      "click",
-      event => {
-
-        const button =
-          event.target.closest(
-            ".user-more-btn"
-          );
-
-
-        if (!button) {
-          return;
-        }
-
-
-        openUserModal(
-          button.dataset.userId
-        );
-
-      }
-    );
-
-
-    /* ===============================================================
-       SELECT ALL
-    =============================================================== */
-
-    selectAllUsers.addEventListener(
-      "change",
-      () => {
-
-        document.querySelectorAll(
-          ".user-checkbox"
-        ).forEach(checkbox => {
-
-          checkbox.checked =
-            selectAllUsers.checked;
-
-        });
-
-      }
-    );
-
-
-    /* ===============================================================
-       EXPORT CSV
-    =============================================================== */
-
-    document.getElementById(
-      "exportUsersBtn"
-    ).addEventListener(
-      "click",
-      () => {
-
-        const filteredUsers =
-          getFilteredUsers();
-
-
-        const rows = [
-
-          [
-            "Name",
-            "Username",
-            "Email",
-            "Contact No.",
-            "Address",
-            "Role",
-            "Status",
-            "Joined"
-          ],
-
-          ...filteredUsers.map(user => [
-
-            user.name,
-            user.username,
-            user.email,
-            user.contact,
-            user.address,
-            user.role,
-            user.status,
-            user.joined
-
-          ])
-
-        ];
-
-
-        const csv =
-          rows
-            .map(row =>
-              row.map(value =>
-                `"${String(value)
-                  .replaceAll('"', '""')}"`
-              ).join(",")
-            )
-            .join("\n");
-
-
-        const blob =
-          new Blob(
-            [csv],
-            {
-              type:
-                "text/csv;charset=utf-8;"
-            }
-          );
-
-
-        const url =
-          URL.createObjectURL(blob);
-
-
-        const link =
-          document.createElement("a");
-
-
-        link.href = url;
-
-        link.download =
-          "ifc-crafts-users.csv";
-
-
-        document.body.appendChild(link);
-
-        link.click();
-
-        link.remove();
-
-        URL.revokeObjectURL(url);
-
-      }
-    );
-
-
-    /* ===============================================================
-       MODAL EVENTS
-    =============================================================== */
-
-    document.getElementById(
-      "closeUserModal"
-    ).addEventListener(
-      "click",
-      closeUserModal
-    );
-
-
-    document.getElementById(
-      "closeUserModalFooter"
-    ).addEventListener(
-      "click",
-      closeUserModal
-    );
-
-
-    userModal.addEventListener(
-      "click",
-      event => {
-
-        if (event.target === userModal) {
-          closeUserModal();
-        }
-
-      }
-    );
-
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-          event.key === "Escape" &&
-          userModal.classList.contains("open")
-        ) {
-
-          closeUserModal();
-
-        }
-
-      }
-    );
-
-
-    /* ===============================================================
-       INITIAL RENDER
-    =============================================================== */
-
-    updateStats();
-    renderUsers();
-
-  </script>
-
-  <div class="mobile-nav-backdrop" aria-hidden="true"></div>
-  <script src="mobile-nav.js"></script>
-</body>
-</html>
+@media (max-width: 760px) {
+  .audit-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .audit-stat-card { padding: 12px; gap: 8px; min-width: 0; }
+  .audit-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+  .audit-toolbar .search-field { grid-column: 1 / -1; min-width: 0; }
+  .audit-toolbar .date-filter { grid-column: 1 / -1; min-width: 0; }
+  .table-wrapper { overflow: visible; padding: 10px; }
+  .audit-table, .audit-table tbody, .audit-table tr, .audit-table td { display: block; width: 100%; }
+  .audit-table { table-layout: auto; }
+  .audit-table thead { display: none; }
+  .audit-table tbody tr:not(.empty-table-row) { padding: 10px 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 10px; }
+  .audit-table tbody tr:not(.empty-table-row) td { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border: 0; font-size: .75rem; white-space: normal; overflow-wrap: anywhere; }
+  .audit-table tbody tr:not(.empty-table-row) td::before { width: 86px; flex: 0 0 86px; color: #777; font-weight: 600; }
+  .audit-table tbody tr:not(.empty-table-row) td:nth-child(1)::before { content: 'Date'; }
+  .audit-table tbody tr:not(.empty-table-row) td:nth-child(2)::before { content: 'User'; }
+  .audit-table tbody tr:not(.empty-table-row) td:nth-child(3)::before { content: 'Action'; }
+  .audit-table tbody tr:not(.empty-table-row) td:nth-child(4)::before { content: 'Module'; }
+  .audit-table tbody tr:not(.empty-table-row) td:nth-child(5)::before { content: 'Details'; }
+  .audit-table tbody tr:not(.empty-table-row) td:nth-child(6)::before { content: 'IP Address'; }
+  .audit-table .empty-table-row td { display: block; }
+  .empty-state { min-height: 170px; padding: 15px; text-align: center; }
+}
+@media (max-width: 390px) {
+  .audit-stats, .audit-toolbar { grid-template-columns: 1fr; }
+  .audit-toolbar .search-field, .audit-toolbar .date-filter { grid-column: auto; }
+}
