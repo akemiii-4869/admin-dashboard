@@ -155,9 +155,8 @@ select {
 
 .shell {
   display: flex;
-
+  align-items: flex-start;
   min-height: 100vh;
-
   padding-top: 64px;
 }
 
@@ -167,47 +166,41 @@ select {
 ================================================================ */
 
 .sidebar {
-  position: fixed;
-
+  position: sticky;
   top: 64px;
-  bottom: 0;
-  left: 0;
-
-  width: 245px;
+  width: 220px;
+  min-height: calc(100vh - 64px);
+  flex-shrink: 0;
 
   padding: 20px 14px;
-
-  border-right: 1px solid #dddddd;
-
   background: #ffffff;
-
-  overflow-y: auto;
+  border-right: 1px solid #dddddd;
 }
 
 .sidenav {
   display: flex;
   flex-direction: column;
 
-  gap: 5px;
+  gap: 4px;
 }
 
 .sidenav-link {
-  min-height: 45px;
+  width: 100%;
 
   display: flex;
   align-items: center;
 
-  gap: 13px;
+  gap: 12px;
 
-  padding: 9px 14px;
+  padding: 10px 14px;
 
-  border-radius: 8px;
+  border-radius: 10px;
 
-  color: #111111;
+  color: #1c1c1c;
 
   text-decoration: none;
 
-  font-size: 0.76rem;
+  font-size: 0.9rem;
   font-weight: 600;
 
   transition: 0.15s ease;
@@ -216,12 +209,12 @@ select {
 .sidenav-link svg {
   flex: 0 0 auto;
 
-  width: 19px;
-  height: 19px;
+  width: 20px;
+  height: 20px;
 }
 
 .sidenav-link:hover {
-  background: #f3f3f3;
+  background: #eeeeee;
 }
 
 .sidenav-link.active {
@@ -235,9 +228,8 @@ select {
 ================================================================ */
 
 .main {
-  width: calc(100% - 245px);
-
-  margin-left: 245px;
+  flex: 1;
+  min-width: 0;
 
   padding: 28px 32px 45px;
 }
@@ -1811,24 +1803,12 @@ select {
 
 
 @media (max-width: 850px) {
-
   .sidebar {
     width: 190px;
   }
 
   .main {
-    width: calc(100% - 190px);
-
-    margin-left: 190px;
-
     padding: 20px;
-  }
-
-  .sidenav-link {
-    padding-left: 10px;
-    padding-right: 10px;
-
-    font-size: 0.68rem;
   }
 
   .settings-tabs {
