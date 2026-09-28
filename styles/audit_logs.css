@@ -621,10 +621,6 @@ a {
   width: 145px;
 }
 
-.audit-table th:nth-child(6) {
-  width: 125px;
-}
-
 
 /* ===============================================================
    USER CELL
@@ -735,8 +731,7 @@ a {
    OTHER TABLE CELLS
 ================================================================ */
 
-.date-cell,
-.ip-cell {
+.date-cell {
   color: #888888 !important;
 
   white-space: nowrap;
@@ -951,20 +946,8 @@ a {
   .audit-toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
   .audit-toolbar .search-field { grid-column: 1 / -1; min-width: 0; }
   .audit-toolbar .date-filter { grid-column: 1 / -1; min-width: 0; }
-  .table-wrapper { overflow: visible; padding: 10px; }
-  .audit-table, .audit-table tbody, .audit-table tr, .audit-table td { display: block; width: 100%; }
-  .audit-table { table-layout: auto; }
-  .audit-table thead { display: none; }
-  .audit-table tbody tr:not(.empty-table-row) { padding: 10px 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 10px; }
-  .audit-table tbody tr:not(.empty-table-row) td { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border: 0; font-size: .75rem; white-space: normal; overflow-wrap: anywhere; }
-  .audit-table tbody tr:not(.empty-table-row) td::before { width: 86px; flex: 0 0 86px; color: #777; font-weight: 600; }
-  .audit-table tbody tr:not(.empty-table-row) td:nth-child(1)::before { content: 'Date'; }
-  .audit-table tbody tr:not(.empty-table-row) td:nth-child(2)::before { content: 'User'; }
-  .audit-table tbody tr:not(.empty-table-row) td:nth-child(3)::before { content: 'Action'; }
-  .audit-table tbody tr:not(.empty-table-row) td:nth-child(4)::before { content: 'Module'; }
-  .audit-table tbody tr:not(.empty-table-row) td:nth-child(5)::before { content: 'Details'; }
-  .audit-table tbody tr:not(.empty-table-row) td:nth-child(6)::before { content: 'IP Address'; }
-  .audit-table .empty-table-row td { display: block; }
+  .table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .audit-table { min-width: 680px; }
   .empty-state { min-height: 170px; padding: 15px; text-align: center; }
 }
 @media (max-width: 390px) {
